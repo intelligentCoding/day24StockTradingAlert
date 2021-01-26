@@ -43,7 +43,6 @@ difference_percentage = round((difference / float(yesterday_closing_price)) * 10
 # STEP#5 if difference is greater than 5 get news
 print(difference_percentage)
 if abs(difference_percentage) > 1:
-    print("helloo")
     news_params = {
         "apikey": os.getenv("news_api_key"),
         "qInTitle": COMPANY_NAME
@@ -55,7 +54,6 @@ if abs(difference_percentage) > 1:
     # STEP#6 get heading and content of 3 articles
     formatted_articles = [f"\n\n{STOCK_NAME} : {up_down} {difference_percentage}%\nHeadlines: {article['title']}. \nBrief: {article['description']}" for article in
                           three_articles]
-    print(formatted_articles)
     # STEP#7 send text message using twillio
     client = Client(os.getenv("account_sid"), os.getenv("auth_token"))
     for article in formatted_articles:
