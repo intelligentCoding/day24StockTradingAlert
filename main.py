@@ -63,5 +63,5 @@ if abs(difference_percentage) > 1:
             .create(
             body=article,
             from_='+18317696055',
-            to='+16475754331'
+            to='YOUR_PHONE_NUMBER'
         )
